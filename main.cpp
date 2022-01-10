@@ -26,6 +26,8 @@ int main(int argc, char** argv)
     Detector detector(config);
     detector.detect(image, loc, conf);
     auto priors = pbox.decode(loc, anchors, variance, image.cols, image.rows);
+
+    cout << priors.row(15349) << endl;
     detector.postProcess(priors, conf, clr);
     imshow("detection", clr);
     imwrite("assert/output.jpg", clr);
