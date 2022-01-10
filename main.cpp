@@ -30,13 +30,16 @@ int main()
     ofstream ofs("out.csv");
     for (int i = 0; i < conf.rows; i++)
     {
-        if (conf.at<float>(i, 1) > 0.999)
+        if (conf.at<float>(i, 1) > 0.99)
         {
             ofs << i << "," << loc.at<float>(i, 0) << "," << loc.at<float>(i, 1) << "," << loc.at<float>(i, 2) << "," << loc.at<float>(i, 3) << "," << conf.at<float>(i, 1) << endl;
         }
     }
     ofs.close();
+    cout << anchors.row(15349) << endl;
     auto priors = pbox.decode(loc, anchors, variance, image.cols, image.rows);
+
+    cout << priors.row(15349) << endl;
     detector.postProcess(priors, conf, clr);
     imshow("detection", clr);
     waitKey(0);
