@@ -61,5 +61,11 @@ void Detector::postProcess(Mat &priors, Mat &conf, Mat &img)
     for (int i = 0; i < indices.size(); i++)
     {
         rectangle(img, boxes[indices[i]], Scalar(0, 255, 0), 2);
+        auto box = boxes[indices[i]];
+        int y = max(box.y - 10,0);
+        char sc[80];
+        sprintf(sc,"%.4f", scores[indices[i]]);
+        ;
+        putText(img, sc, Point(box.x, y), FONT_HERSHEY_PLAIN, 1.0, Scalar(0, 255, 0), 2);
     }
 }

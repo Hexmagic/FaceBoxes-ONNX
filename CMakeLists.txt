@@ -12,7 +12,3 @@ include_directories(
 )
 add_executable(main main.cpp src/detector.cpp src/priorbox.cpp)
 target_link_libraries(main ${OpenCV_LIBS})
-add_executable(test src/test.cpp)
-target_link_libraries(test ${OpenCV_LIBS})
-add_executable(test_onnx test_onnx.cpp)
-target_link_libraries(test_onnx ${OpenCV_LIBS})

@@ -36,11 +36,11 @@ void PriorBox::forward(Mat &anchors)
                     vector<float> _steps;
                     if (_size == 32)
                     {
-                        _steps = {0.0f, 0.25f, 0.5f, 0.7f};
+                        _steps = {0.0f, 0.25f, 0.5f, 0.75f};
                     }
                     else if (_size == 64)
                     {
-                        _steps = {0.0f, 0.05f};
+                        _steps = {0.0f, 0.5f};
                     }
                     else
                     {
